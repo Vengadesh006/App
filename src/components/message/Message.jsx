@@ -49,12 +49,12 @@ export const Message = () => {
   
 
   return (
-    <div className="w-full h-full flex bg-gray-50 py-4">
+    <div className="w-full h-full flex bg-gray-50 py-4 rounded-3xl" >
      
       <div className="hidden md:flex flex-col w-1/3  bg-gray-300">
         
-        <div className="p-4 sticky top-0 bg-red-200 shadow">
-          <div className="flex items-center gap-2 bg-gray-100 rounded-lg">
+        <div className="p-4 sticky top-0 bg-white">
+          <div className="flex items-center gap-2 bg-blue-200 rounded-lg">
             <img src={search} className="w-10" alt="search" />
             <input
               type="text"
@@ -66,7 +66,7 @@ export const Message = () => {
         </div>
 
         {/* Users */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 bg-white overflow-y-auto">
           {user.map((info, i) => (
             <div
               key={i}
@@ -89,7 +89,7 @@ export const Message = () => {
       {/* Chat Area */}
       <div className="flex flex-col flex-1">
         {/* Header */}
-        <div className="flex justify-between items-center p-4 border-b bg-white shadow">
+        <div className="flex justify-between items-center p-4 bg-white shadow">
           <div>
             <h1 className="text-lg font-bold">Design Chat</h1>
             <p className="text-gray-500 text-xs">23 members, 10 online</p>
@@ -119,7 +119,7 @@ export const Message = () => {
         </div>
 
         {/* Input */}
-        <div className="flex items-center gap-3 p-3 border-t bg-blue-100">
+        <div className="flex items-center gap-3 p-3 rounded-3xl bg-blue-100 px-2">
           <label htmlFor="file" className="text-xl cursor-pointer">
             <MdOutlineFileUpload />
           </label>
@@ -128,7 +128,7 @@ export const Message = () => {
           <input
             type="text"
             placeholder="Type a message..."
-            className="flex-1 px-4 py-2 rounded-lg outline-none bg-white shadow-sm text-sm"
+            className="flex-1 px-4 py-2 rounded-lg outline-none text-sm"
             value={texts}
           
             

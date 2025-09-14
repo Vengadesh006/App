@@ -21,8 +21,10 @@ export const Home = () => {
 
 
     return (
-        <div className="w-full min-h-screen flex items-center justify-center p-4 bg-gray-100">
-            <div className="w-[92%] h-[680px] max-w-7xl min-h-full shadow-xl rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-[90px_2.6fr_1.2fr] bg-white">
+        <div className="w-full min-h-screen flex items-center justify-center p-4 " >
+            <div className="w-[92%] h-[680px] max-w-7xl min-h-full shadow-xl gap-2 p-5 rounded-2xl overflow-hidden grid grid-cols-[80px_2fr] md:grid-cols-[90px_2.6fr_1.2fr] bg-white"
+            style={{background : "#1B1212"}}
+            >
                 <Nav />
                 <Message />
                 <SildeBar />
