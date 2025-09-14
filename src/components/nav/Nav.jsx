@@ -1,55 +1,42 @@
-import logo from "../../assets/logo.png"
-import { FaRegMessage } from "react-icons/fa6";
+import logo from "../../assets/logo.png";
 import { IoMdChatboxes } from "react-icons/io";
-import { FaFolder } from "react-icons/fa6";
-import { FaFolderOpen } from "react-icons/fa6";
-import { GrGallery } from "react-icons/gr";
+import { FaFolder, FaFolderOpen } from "react-icons/fa6";
 import { IoPersonCircleOutline } from "react-icons/io5";
-import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineLogout } from "react-icons/md";
 
-
 export const Nav = () => {
-    return (
-        <div className="w-35 h-full flex flex-col items-center gap-20 p-4">
-            <div className="brand">
+  return (
+    <div className="h-full w-full bg-white border-r flex flex-col items-center py-6 justify-between">
+      {/* Brand Logo */}
+      <div>
+        <img src={logo} className="w-12 h-12 object-contain" alt="logo" />
+      </div>
 
-                <img src={logo} className="w-16" alt="" />
-            </div>
+      {/* Menu */}
+      <ul className="flex flex-col items-center gap-8 text-gray-600">
+        <li className="flex flex-col items-center cursor-pointer hover:text-blue-600">
+          <IoMdChatboxes className="text-2xl" />
+          <p className="text-[10px] mt-1">Work</p>
+        </li>
+        <li className="flex flex-col items-center cursor-pointer hover:text-blue-600">
+          <FaFolder className="text-xl" />
+          <p className="text-[10px] mt-1">Friends</p>
+        </li>
+        <li className="flex flex-col items-center cursor-pointer hover:text-blue-600">
+          <FaFolderOpen className="text-xl" />
+          <p className="text-[10px] mt-1">News</p>
+        </li>
+        <li className="flex flex-col items-center cursor-pointer hover:text-blue-600">
+          <IoPersonCircleOutline className="text-2xl" />
+          <p className="text-[10px] mt-1">Profile</p>
+        </li>
+      </ul>
 
-            <ul className='flex flex-col items-center gap-5' >
-               
-                <li>
-                    <IoMdChatboxes className='text-3xl font-blod' />
-                    <p> Work   </p>
-                </li>
-                <li>
-                    <FaFolder className='text-2xl font-blod' />
-                    <p> Friends  </p>
-                </li>
-                <li>
-                    <FaFolderOpen className='text-2xl font-blod' />
-                    <p> News  </p>
-                </li>
-               
-                <li>
-                    <IoPersonCircleOutline className='text-3xl font-blod' />
-                    <p> profile  </p>
-                </li>
-                <li>
-                    <FaRegEdit className='text-2xl font-blod' />
-                    <p> edit  </p>
-                </li>
-                <li>
-
-                </li>
-
-            </ul>
-            <div className="login">
-                  <MdOutlineLogout className='text-2xl font-blod'  />
-                  <p> Login </p>
-            </div>
-
-        </div>
-    )
-}
+      {/* Login/Logout */}
+      <div className="flex flex-col items-center cursor-pointer text-gray-600 hover:text-red-500">
+        <MdOutlineLogout className="text-xl" />
+        <p className="text-[10px] mt-1">Login</p>
+      </div>
+    </div>
+  );
+};

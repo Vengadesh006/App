@@ -3,21 +3,32 @@ import './App.css'
 import { Nav } from './components/nav/Nav'
 import { Message } from './components/message/Message'
 import { SildeBar } from './components/Sildebar/SildeBar'
+import { Routes, Route } from 'react-router-dom'
+import { Login } from './components/signup/Login'
+import { Signup } from './components/signup/Signup'
+import { Home } from './components/home.jsx/Home'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
+    
     <>
-      <div className="w-full min-h-screen flex items-center justify-center p-4">
-        <div className="w-[92%] h-[680px] max-w-full min-h-full shadow-xl flex " >
-          <Nav />
-          <Message />
-          <SildeBar />
-        </div>
+     
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+      </Routes>
 
-      </div>
+
+
     </>
+
+
+
+
+  
   )
 }
 

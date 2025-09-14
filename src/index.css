@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
-.alingment{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+.align{
+    display: grid;
+    grid-template-columns: 1fr 4fr 3fr ;
+
 }
 
-::-webkit-scrollbar {
-        display: none;
-    }
+
