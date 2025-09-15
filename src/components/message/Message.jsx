@@ -8,13 +8,28 @@ import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
 import { db } from "../config/Firebase";
 import { Chat } from "./Chat";
 import user1 from "../../assets/user.jpeg";
+import user2 from "../../assets/w1.jfif"
+import user3 from "../../assets/w2.jfif"
+import user4 from "../../assets/w4.jfif"
+import user5 from "../../assets/me1.jfif"
+import user6 from "../../assets/me2.jfif"
+import user7 from "../../assets/me3.jfif"
+import user8 from "../../assets/w5.jfif"
+import user9 from "../../assets/me4.jfif"
+import user10 from "../../assets/me5.jfif"
 
 
 export const Message = () => {
   const [user, setUser] = useState([
     { username: "Deve", chat: "Hi there, how can I assist you?", img: user1 },
-    { username: "Alex", chat: "Let’s work on the new UI today!", img: user1 },
-    { username: "Sarah", chat: "Meeting at 4 PM, don’t forget!", img: user1 },
+    { username: "Alex", chat: "Let’s work on the new UI today!", img: user2 },
+    { username: "Sarah", chat: "Meeting at 4 PM, don’t forget!", img: user3 },
+    { username: "Osman Campos", chat: "Meeting at 4 PM, don’t forget!", img: user4 },
+    { username: "Jayden Chursh", chat: "Meeting at 4 PM, don’t forget!", img: user5 },
+    { username: "JaCob Mcleod", chat: "Meeting at 4 PM, don’t forget!", img: user6 },
+    { username: "Jamin Lowery", chat: "Meeting at 4 PM, don’t forget!", img: user7 },
+    { username: "Vanessa Cox", chat: "Meeting at 4 PM, don’t forget!", img: user8 },
+    { username: "Anotoy Cordanes", chat: "Meeting at 4 PM, don’t forget!", img: user8 },
   ]);
 
   const [texts, setText] = useState("");
@@ -46,16 +61,12 @@ export const Message = () => {
 
    
   }
-
-
-  
-
   return (
-    <div className="w-full h-full flex bg-gray-50 py-4  rounded-3xl" >
+    <div className="w-full h-full flex bg-gray-50 py-4 rounded-3xl relative" >
      
-      <div className=" flex-col w-1/3   bg-gray-300n ">
+      <div className="flex flex-col flex-1 md:flex-node w-1/2">
         
-        <div className="p-4 sticky top-0 bg-white rounded-3xl">
+        <div className="p-4 bg-white overflow-hidden rounded-3xl">
           <div className="flex items-center gap-2 bg-indigo-200 rounded-lg">
             <img src={search} className="w-12" alt="search" />
             <input
@@ -89,9 +100,9 @@ export const Message = () => {
       </div>
 
       {/* Chat Area */}
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 px-5 hidden md:block">
         {/* Header */}
-        <div className="flex justify-between items-center p-4 bg-white rounded-sm">
+        <div className="flex justify-between items-center p-4 rounded-sm">
           <div>
             <h1 className="text-3xl font-medium">Design Chat</h1>
             <p className="text-gray-500 text-md">23 members, 10 online</p>

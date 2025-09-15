@@ -34,9 +34,9 @@ export const SildeBar = () => {
   ]
 
   return (
-    <div className="h-full w-full flex flex-col rounded-3xl bg-transpraent">
+    <div className="h-full w-full flex hidden md:block flex-col rounded-3xl bg-transpraent">
       {/* Shared Files Section */}
-      <div className="border bg-white rounded-3xl h-[60%] overflow-hidden max-w-xs mb-2 px-4 py-3">
+      <div className="border bg-white rounded-3xl overflow-hidden max-w-xs mb-2 px-4 py-3">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-semibold"> Group Info </h1>
          
