@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import search from "../../assets/search.png";
-import user1 from "../../assets/user.jpeg";
 import { IoMdSearch } from "react-icons/io";
 import { HiOutlineDotsVertical, HiPhone } from "react-icons/hi";
 import { MdOutlineKeyboardVoice, MdOutlineFileUpload } from "react-icons/md";
 import { LiaTelegramPlane } from "react-icons/lia";
 import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
 import { db } from "../config/Firebase";
+import { Chat } from "./Chat";
+import user1 from "../../assets/user.jpeg";
+
 
 export const Message = () => {
   const [user, setUser] = useState([
@@ -49,17 +51,17 @@ export const Message = () => {
   
 
   return (
-    <div className="w-full h-full flex bg-gray-50 py-4 rounded-3xl" >
+    <div className="w-full h-full flex bg-gray-50 py-4  rounded-3xl" >
      
-      <div className="hidden md:flex flex-col w-1/3  bg-gray-300">
+      <div className="hidden md:flex flex-col w-1/3   bg-gray-300n ">
         
-        <div className="p-4 sticky top-0 bg-white">
-          <div className="flex items-center gap-2 bg-blue-200 rounded-lg">
-            <img src={search} className="w-10" alt="search" />
+        <div className="p-4 sticky top-0 bg-white rounded-3xl">
+          <div className="flex items-center gap-2 bg-indigo-200 rounded-lg">
+            <img src={search} className="w-12" alt="search" />
             <input
               type="text"
               placeholder="Search..."
-              className="bg-transparent outline-none w-full text-sm text-gray-600"
+              className="bg-transparent outline-none w-full text-sm text-gray-600 placeholder:font-medium  placeholder:text-black"
               onChange={inputHandler}
             />
           </div>
@@ -89,52 +91,37 @@ export const Message = () => {
       {/* Chat Area */}
       <div className="flex flex-col flex-1">
         {/* Header */}
-        <div className="flex justify-between items-center p-4 bg-white shadow">
+        <div className="flex justify-between items-center p-4 bg-white rounded-sm">
           <div>
-            <h1 className="text-lg font-bold">Design Chat</h1>
-            <p className="text-gray-500 text-xs">23 members, 10 online</p>
+            <h1 className="text-3xl font-medium">Design Chat</h1>
+            <p className="text-gray-500 text-md">23 members, 10 online</p>
           </div>
-          <div className="flex items-center gap-4 text-xl text-gray-600">
-            <IoMdSearch />
-            <HiPhone />
-            <HiOutlineDotsVertical />
+          <div className="flex items-center gap-4 text-gray-600">
+            <IoMdSearch className="text-3xl" />
+            <HiPhone  className="text-3xl" />
+            <HiOutlineDotsVertical  className="text-3xl" />
           </div>
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-4">
-          <div className="flex justify-start gap-3">
-            <img src={user1} className="w-10 h-10 rounded-full" alt="user" />
-            <div className="bg-gray-200 px-4 py-2 rounded-xl max-w-xs">
-              <p className="text-gray-800">Hey, how’s it going?</p>
-            </div>
-          </div>
-
-          <div className="flex justify-end">
-            <div className="bg-blue-500 text-white px-4 py-2 rounded-xl max-w-xs">
-              <p>All good! Working on the project.</p>
-            </div>
-          </div>
-
-        </div>
-
+        <Chat />
+        
         {/* Input */}
-        <div className="flex items-center gap-3 p-3 rounded-3xl bg-blue-100 px-2">
+        <div className="flex items-center gap-3 p-3 rounded-3xl bg-stone-200 px-5">
           <label htmlFor="file" className="text-xl cursor-pointer">
-            <MdOutlineFileUpload />
+            <MdOutlineFileUpload className="text-2xl" />
           </label>
           <input type="file" id="file" hidden />
 
           <input
             type="text"
             placeholder="Type a message..."
-            className="flex-1 px-4 py-2 rounded-lg outline-none text-sm"
-            value={texts}
-          
+            className="flex-1 px-4 py-2 text-xl rounded-lg outline-none text-sm"
+           
             
           />
-          <MdOutlineKeyboardVoice className="text-xl cursor-pointer text-gray-600" />
-          <LiaTelegramPlane className="text-xl cursor-pointer text-blue-500" />
+          <MdOutlineKeyboardVoice className="text-2xl cursor-pointer text-gray-600" />
+          <LiaTelegramPlane className="text-2xl cursor-pointer text-blue-500" />
         </div>
       </div>
     </div>

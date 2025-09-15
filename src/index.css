@@ -1,9 +1,20 @@
 @import "tailwindcss";
 
-.align{
-    display: grid;
-    grid-template-columns: 1fr 4fr 3fr ;
 
+.navhover:hover{
+   background-color: #c4c4c4;
+   border-radius:8px ;
 }
 
+::-webkit-scrollbar {
+  display: none; /* removes scrollbar in WebKit browsers */
+}
+
+.bgimage {
+   background-image: url(./assets/bg.jpg);
+   background-position: 100% 100%;
+   background-repeat: no-repeat;
+   background-size: cover;
+
+}
 
