@@ -53,7 +53,7 @@ export const Message = () => {
   return (
     <div className="w-full h-full flex bg-gray-50 py-4  rounded-3xl" >
      
-      <div className="hidden md:flex flex-col w-1/3   bg-gray-300n ">
+      <div className=" flex-col w-1/3   bg-gray-300n ">
         
         <div className="p-4 sticky top-0 bg-white rounded-3xl">
           <div className="flex items-center gap-2 bg-indigo-200 rounded-lg">
