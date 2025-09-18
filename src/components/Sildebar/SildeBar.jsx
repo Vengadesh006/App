@@ -21,7 +21,10 @@ export const SildeBar = () => {
     { name: "Tanisha Combs", Img: img1, type: "admin" },
     { name: "Alex Hunt", Img: img2 },
     { name: "Jasmin Lowery", Img: img3 },
-    { name: "Max Paaila", Img: img4 }
+    { name: "Max Paaila", Img: img4 },
+    { name: "Max Paaila", Img: img4 },
+    { name: "Max Paaila", Img: img4 },
+   
   ]
 
   const group = [
@@ -33,7 +36,7 @@ export const SildeBar = () => {
   ]
 
   return (
-    <div className="h-full w-full flex hidden md:block flex-col  bg-transpraent">
+    <div className="h-full w-full flex hidden md:block flex-col bg-transpraent mx-3 my-2">
       {/* Shared Files Section */}
       <div className="border bg-white rounded-4xl overflow-hidden max-w-xs mb-2 px-4 py-3">
         <div className="flex justify-between items-center my-4">
@@ -47,10 +50,10 @@ export const SildeBar = () => {
          
           <div className="flex items-center justify-between group cursor-pointer hover:bg-gray-100 rounded-lg px-2 py-1">
               <div className="flex items-center gap-3 my-3">
-                <span className="text-2xl text-gray-600 group-hover:text-blue-500"> <GrGallery /> </span>
+                <span className="text-2xl text-[#0e0e0e] "> <GrGallery /> </span>
                 <span className="text-base font-medium"> 265 Photo </span>
               </div>
-              <IoIosArrowDown className="text-black text-2xl" />
+              <IoIosArrowDown className="text-[#0e0e0e] text-2xl" />
              
             </div>
              <div className="flex gap-3 my-3">
@@ -62,10 +65,10 @@ export const SildeBar = () => {
           {group.map((item, i) => (
             <li key={i} className="flex items-center justify-between group cursor-pointer mb-3 hover:bg-gray-100 rounded-lg px-2 py-1">
               <div className="flex items-center my-1 gap-3">
-                <span className="text-2xl  ">{item.icon}</span>
+                <span className="text-2xl text-[#0e0e0e]  ">{item.icon}</span>
                 <span className="text-base font-medium">{item.name}</span>
               </div>
-              <IoIosArrowDown className="text-black text-2xl" />
+              <IoIosArrowDown className="text-[#0e0e0e] text-2xl" />
             </li>
           ))}
         </ul>
@@ -73,26 +76,28 @@ export const SildeBar = () => {
 
       {/* Members Section */}
       <div className="flex-1 px-4 py-3 overflow-y-auto max-w-xs rounded-4xl bg-[#dbdcfe] ">
-        <div className="flex mt-4 mb-3 justify-between items-center">
+        <div className="flex  mb-3 justify-between items-center">
           <h1 className="text-xl font-bold my-3 mx-2">23 Members</h1>
           <button className="text-gray-500  text-2xl">
             <IoMdClose />
           </button>
         </div>
-        <ul className="space-y-4">
+        <ul className="flex flex-col gap-2 space-y-3">
           {user.map((item, i) => (
-            <li key={i} className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 cursor-pointer">
+            <li key={i} className="flex items-center gap-3 rounded-lg hover:bg-gray-100 cursor-pointer">
               <img
                 src={item.Img}
                 className="w-14 h-16 rounded-xl object-cover"
                 alt={item.name}
               />
-              <div className="flex flex-col">
-                <span className="text-lg font-semibold">{item.name}</span>
+              <div className="flex items-center">
+                <span className="text-lg font-semibold text-[#0e0e0e]">{item.name}</span>
                 {item.type && (
-                  <span className="text-xs font-medium text-gray-400 uppercase">{item.type}</span>
+                  <span className="text-lg font-normal text-gray-400 lowercase">{item.type}</span>
                 )}
+               
               </div>
+            
             </li>
           ))}
         </ul>

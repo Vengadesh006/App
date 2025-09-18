@@ -21,7 +21,9 @@ import user9 from "../../assets/me4.jfif"
 import user10 from "../../assets/me5.jfif"
 import { CiSearch } from "react-icons/ci";
 import { HiOutlinePhone } from "react-icons/hi2";
-export const Message = () => {
+import { HiDotsVertical } from "react-icons/hi";
+
+export const Message = ({isOpen, setIsOpen}) => {
   const [user, setUser] = useState([
     { username: "Deve", chat: "Hi there, how can I assist you?", img: user1 },
     { username: "Alex", chat: "Let’s work on the new UI today!", img: user2 },
@@ -44,97 +46,104 @@ export const Message = () => {
 
     const q = query(userRef, where("username", "==", input))
 
-    try{
-      const querySnap =await getDocs(q)
+    try {
+      const querySnap = await getDocs(q)
 
-      if(!querySnap.empty){
-        querySnap.forEach((doc) => console.log( doc.data()))
+      if (!querySnap.empty) {
+        querySnap.forEach((doc) => console.log(doc.data()))
       }
       else {
         console.log("user not fount");
-        
+
       }
 
     }
-    catch(err){
-        console.log(err.message);
-        
+    catch (err) {
+      console.log(err.message);
+
     }
 
-   
+
   }
   return (
-   <div className="w-full h-full flex bg-gray-50 rounded-4xl bg-white relative overflow-hidden">
-  {/* Sidebar (Users) */}
-  <div className="flex flex-col bg-transparent mt-3 py-3 w-full h-full md:w-[40%] lg:w-[32%]">
-    <div className=" overflow-hidden bg-transparent rounded-md">
-      <div className="flex items-center gap-2 ml-5 py-3 mr-4 px-2 bg-[#dbdcfe]  rounded-xl">
-        <div className="text-3xl"><CiSearch  /> </div>
-        <input
-          type="text"
-          placeholder="Search"
-          className="bg-transparent outline-none w-full text-[0.9rem] text-gray-300 placeholder:font-normal placeholder:text-black"
-          onChange={inputHandler}
-        />
-      </div>
-    </div>
-
-    {/* Users */}
-    <div className="flex flex-col shrink-0 overflow-y-auto">
-      {user.map((info, i) => (
-        <div
-          key={i}
-          className="flex  gap-3 mx-4 p-3 my-2 cursor-pointer hover:bg-indigo-100 hover:rounded-xl"
-        >
-          <img
-            src={info.img}
-            className="w-18 h-16 object-cover rounded-md"
-            alt="user"
-          />
-          <div>
-            <h1 className="text-base font-medium mb-1">{info.username}</h1>
-            <p className="text-gray-500 text-sm truncate w-40">{info.chat}</p>
+    <div className="w-full cursor-pointer h-full
+    flex shadow-xl
+    bg-gray-50 rounded-4xl bg-white relative overflow-hidden">
+      {/* Sidebar (Users) */}
+      <div className="flex flex-col w-full md:w-[40%] lg:w-1/3 bg-transparent mt-3 py-3">
+        <div className="flex justify-between overflow-hidden bg-transparent rounded-md">
+          <div className="flex flex-1 items-center gap-2 ml-5 py-2 mr-4 px-2 bg-[#dbdcfe] rounded-xl">
+            <div className="text-3xl"><CiSearch /> </div>
+            <input
+              type="text"
+              placeholder="Search"
+              className="bg-transparent outline-none w-full text-[0.9rem] text-gray-300 placeholder:font-normal placeholder:text-black"
+              onChange={inputHandler}
+            />
+          </div>
+          <div className="flex items-center mr-3 sm:hidden" onClick={() => setIsOpen(!isOpen) } >
+            <HiDotsVertical />
           </div>
         </div>
-      ))}
-    </div>
-  </div>
 
-  {/* Chat Area */}
-  <div className="hidden md:flex flex-col flex-1 px-5 relative">
-    {/* Header */}
-    <div className="flex justify-between items-center mt-3 p-4 rounded-sm">
-      <div>
-        <h1 className="text-4xl font-medium mb-3">Design Chat</h1>
-        <p className="text-gray-500 text-lg">23 members, 10 online</p>
+        {/* Users */}
+        <div className="flex flex-col overflow-y-auto">
+          {user.map((info, i) => (
+            <div
+              key={i}
+              className="flex gap-3 mx-4 p-3 my-2 cursor-pointer hover:bg-[#edeef8] hover:rounded-xl"
+            >
+              <img
+                src={info.img}
+                className="w-18 h-16 object-cover rounded-md"
+                alt="user"
+              />
+              <div>
+                <h1 className="text-base font-medium mb-1">{info.username}</h1>
+                <p className="text-gray-500 text-sm truncate w-40">{info.chat}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="flex items-center gap-9 text-gray-600">
-        <CiSearch className="text-4xl" />
-        <HiOutlinePhone className="text-4xl" />
-        <HiOutlineDotsVertical className="text-4xl" />
+
+      {/* Chat Area */}
+      <div className="px-5 flex-1 relative md:block hidden ">
+        {/* Header */}
+        <div className="flex justify-between items-center mt-3 p-4 rounded-sm">
+          <div>
+            <h1 className="text-4xl font-medium mb-1">Design Chat</h1>
+            <p className="text-gray-500 text-lg">23 members, 10 online</p>
+          </div>
+          <div className="flex items-center gap-4 cursor-pointer ">
+            <CiSearch className="text-4xl" />
+            <HiOutlinePhone className="text-4xl" />
+            <HiOutlineDotsVertical className="text-4xl" />
+          </div>
+        </div>
+
+        {/* Messages */}
+        <Chat />
+
+        {/* Input */}
+        <div className="flex items-center gap-3 rounded-3xl bg-[#eeeffa] absolute bottom-3 right-10 left-14
+    px-5 py-4">
+          <label htmlFor="file" className="cursor-pointer">
+            <MdOutlineFileUpload className="text-2xl text-[#636fbd] " />
+          </label>
+          <input type="file" id="file" hidden />
+
+          <input
+            type="text"
+            placeholder="Type a message"
+            className="flex-1 px-1 py-2 text-lg rounded-lg outline-none text-sm
+        placeholder:text-[#636fbd] placeholder:font-semibold placeholder:tracking-tight"
+          />
+          <MdOutlineKeyboardVoice className="text-3xl cursor-pointer text-[#636fbd] " />
+          <LiaTelegramPlane className="text-3xl cursor-pointer text-[#636fbd] " />
+        </div>
       </div>
     </div>
-
-    {/* Messages */}
-    <Chat />
-
-    {/* Input */}
-    <div className="flex items-center gap-3 py-4 rounded-3xl bg-[#eeeffa] px-5 absolute bottom-3 right-10 left-14">
-      <label htmlFor="file" className="text-xl cursor-pointer">
-        <MdOutlineFileUpload className="text-4xl" />
-      </label>
-      <input type="file" id="file" hidden />
-
-      <input
-        type="text"
-        placeholder="Type a message..."
-        className="flex-1 px-4 py-2 text-xl rounded-lg outline-none text-sm"
-      />
-      <MdOutlineKeyboardVoice className="text-3xl cursor-pointer text-gray-600" />
-      <LiaTelegramPlane className="text-3xl cursor-pointer text-blue-500" />
-    </div>
-  </div>
-</div>
 
   );
 };
